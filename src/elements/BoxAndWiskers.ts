@@ -52,7 +52,7 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
 
     this._drawBoxPlot(ctx);
     this._drawOutliers(ctx);
-    this._drawMeanDot(ctx);
+    // this._drawMeanDot(ctx);
 
     ctx.restore();
 
@@ -94,7 +94,7 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
     }
     ctx.beginPath();
     ctx.moveTo(x0, props.median);
-    ctx.lineTo(x0 + width, props.median);
+    // ctx.lineTo(x0 + width, props.median);
     ctx.closePath();
     ctx.stroke();
     ctx.restore();
@@ -125,11 +125,11 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
     // Draw the whiskers
     ctx.beginPath();
     ctx.moveTo(x0, props.whiskerMin);
-    ctx.lineTo(x0 + width, props.whiskerMin);
+    // ctx.lineTo(x0 + width, props.whiskerMin);
     ctx.moveTo(x, props.whiskerMin);
     ctx.lineTo(x, props.q1);
     ctx.moveTo(x0, props.whiskerMax);
-    ctx.lineTo(x0 + width, props.whiskerMax);
+    // ctx.lineTo(x0 + width, props.whiskerMax);
     ctx.moveTo(x, props.whiskerMax);
     ctx.lineTo(x, props.q3);
     ctx.closePath();
@@ -161,7 +161,7 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
     }
     ctx.beginPath();
     ctx.moveTo(props.median, y0);
-    ctx.lineTo(props.median, y0 + height);
+    // ctx.lineTo(props.median, y0 + height);
     ctx.closePath();
     ctx.stroke();
     ctx.restore();
@@ -188,11 +188,11 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
     // Draw the whiskers
     ctx.beginPath();
     ctx.moveTo(props.whiskerMin, y0);
-    ctx.lineTo(props.whiskerMin, y0 + height);
+    // ctx.lineTo(props.whiskerMin, y0 + height);
     ctx.moveTo(props.whiskerMin, y);
     ctx.lineTo(props.q1, y);
     ctx.moveTo(props.whiskerMax, y0);
-    ctx.lineTo(props.whiskerMax, y0 + height);
+    // ctx.lineTo(props.whiskerMax, y0 + height);
     ctx.moveTo(props.whiskerMax, y);
     ctx.lineTo(props.q3, y);
     ctx.closePath();
@@ -259,6 +259,6 @@ export class BoxAndWiskers extends StatsBase<IBoxAndWhiskerProps, IBoxAndWhisker
 
 declare module 'chart.js' {
   export interface ElementOptionsByType<TType extends ChartType> {
-    boxandwhiskers: ScriptableAndArrayOptions<IBoxAndWhiskersOptions & CommonHoverOptions, ScriptableContext<TType>>;
+    boxplot: ScriptableAndArrayOptions<IBoxAndWhiskersOptions & CommonHoverOptions, ScriptableContext<TType>>;
   }
 }
